@@ -9,7 +9,7 @@ module.exports = {
 	mode: isProduction ? 'production' : 'development',
 	target: 'web',
 	entry: {
-		app: path.resolve( './admin/src/block.js' )
+		app: path.resolve( './admin/src/index.js' )
 	},
 	output: {
 		path: path.resolve( __dirname, 'admin/dist' ),
