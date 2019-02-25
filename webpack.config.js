@@ -19,7 +19,15 @@ module.exports = {
 		rules: [{
 		  test: /\.js?$/,
 		  exclude: /node_modules/,
-		  loader: 'babel-loader',
+		  use: [
+			{
+				loader: 'babel-loader',
+				options: {
+					presets: [ '@babel/preset-env' ],
+					cacheDirectory: true,
+				},
+			},
+		],
 		}]
 	},
 	externals: {
@@ -31,6 +39,7 @@ module.exports = {
 if ( ! isProduction ) {
 	module.exports.output.publicPath = 'http://' + host + ':' + port + '/' + packageJson.name + '/';
 	module.exports.devServer = {
+		disableHostCheck: true,
 		headers: { 'Access-Control-Allow-Origin': '*' },
 		host: host,
 		port: port,
