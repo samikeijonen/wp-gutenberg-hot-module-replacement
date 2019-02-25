@@ -9,7 +9,7 @@ const {
  * External dependencies
  */
 import React from "react";
-import { hot } from "react-hot-loader"
+import { hot } from "react-hot-loader/root"
 
 /**
  * Internal dependencies
@@ -33,4 +33,4 @@ export class HotComponent extends Component {
 	}
 }
 
-export default hot(module)(HotComponent);
+export default hot( HotComponent );
